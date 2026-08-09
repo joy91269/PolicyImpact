@@ -1,0 +1,130 @@
+[
+  {
+    "claim_id": "CLM-001",
+    "service_date": "2026-07-10",
+    "procedure_code": "SYN-PROC-A1",
+    "diagnosis_codes": ["SYN-DX-A1"],
+    "modifier": "SYN-MOD-RV",
+    "units": 2
+  },
+  {
+    "claim_id": "CLM-002",
+    "service_date": "2026-07-11",
+    "procedure_code": "SYN-PROC-A1",
+    "diagnosis_codes": ["SYN-DX-A1", "SYN-DX-Z9"],
+    "modifier": "SYN-MOD-RV",
+    "units": 1
+  },
+  {
+    "claim_id": "CLM-003",
+    "service_date": "2026-07-12",
+    "procedure_code": "SYN-PROC-A1",
+    "diagnosis_codes": ["SYN-DX-C3"],
+    "modifier": "SYN-MOD-RV",
+    "units": 2
+  },
+  {
+    "claim_id": "CLM-004",
+    "service_date": "2026-07-13",
+    "procedure_code": "SYN-PROC-A1",
+    "diagnosis_codes": ["SYN-DX-C3", "SYN-DX-Z9"],
+    "modifier": "SYN-MOD-RV",
+    "units": 3
+  },
+  {
+    "claim_id": "CLM-005",
+    "service_date": "2026-07-14",
+    "procedure_code": "SYN-PROC-A1",
+    "diagnosis_codes": ["SYN-DX-B2"],
+    "modifier": null,
+    "units": 2
+  },
+  {
+    "claim_id": "CLM-006",
+    "service_date": "2026-07-15",
+    "procedure_code": "SYN-PROC-A1",
+    "diagnosis_codes": ["SYN-DX-B2"],
+    "modifier": "SYN-MOD-BASE",
+    "units": 1
+  },
+  {
+    "claim_id": "CLM-007",
+    "service_date": "2026-07-16",
+    "procedure_code": "SYN-PROC-A1",
+    "diagnosis_codes": ["SYN-DX-B2"],
+    "modifier": "SYN-MOD-RV",
+    "units": 3
+  },
+  {
+    "claim_id": "CLM-008",
+    "service_date": "2026-07-17",
+    "procedure_code": "SYN-PROC-A1",
+    "diagnosis_codes": ["SYN-DX-B2"],
+    "modifier": "SYN-MOD-RV",
+    "units": 4
+  },
+  {
+    "claim_id": "CLM-009",
+    "service_date": "2026-07-18",
+    "procedure_code": "SYN-PROC-A1",
+    "diagnosis_codes": ["SYN-DX-B2"],
+    "modifier": "SYN-MOD-RV",
+    "units": 1
+  },
+  {
+    "claim_id": "CLM-010",
+    "service_date": "2026-07-19",
+    "procedure_code": "SYN-PROC-A1",
+    "diagnosis_codes": ["SYN-DX-B2"],
+    "modifier": "SYN-MOD-RV",
+    "units": 2
+  },
+  {
+    "claim_id": "CLM-011",
+    "service_date": "2026-07-20",
+    "procedure_code": "SYN-PROC-A1",
+    "diagnosis_codes": ["SYN-DX-Z9"],
+    "modifier": "SYN-MOD-RV",
+    "units": 2
+  },
+  {
+    "claim_id": "CLM-012",
+    "service_date": "2026-07-21",
+    "procedure_code": "SYN-PROC-B9",
+    "diagnosis_codes": ["SYN-DX-A1"],
+    "modifier": "SYN-MOD-RV",
+    "units": 2
+  },
+  {
+    "claim_id": "CLM-013",
+    "service_date": "2026-07-22",
+    "procedure_code": "SYN-PROC-A1",
+    "diagnosis_codes": ["SYN-DX-B2"],
+    "modifier": "SYN-MOD-RV",
+    "units": 5
+  },
+  {
+    "claim_id": "CLM-014",
+    "service_date": "2026-07-23",
+    "procedure_code": "SYN-PROC-A1",
+    "diagnosis_codes": ["SYN-DX-B2", "SYN-DX-Z9"],
+    "modifier": "SYN-MOD-RV",
+    "units": 2
+  },
+  {
+    "claim_id": "CLM-015",
+    "service_date": "2026-07-24",
+    "procedure_code": "SYN-PROC-A1",
+    "diagnosis_codes": ["SYN-DX-B2"],
+    "modifier": "SYN-MOD-TRN",
+    "units": 2
+  },
+  {
+    "claim_id": "CLM-016",
+    "service_date": "2026-07-25",
+    "procedure_code": "SYN-PROC-A1",
+    "diagnosis_codes": ["SYN-DX-C3"],
+    "modifier": "SYN-MOD-TRN",
+    "units": 2
+  }
+]
