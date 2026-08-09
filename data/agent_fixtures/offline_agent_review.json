@@ -1,0 +1,683 @@
+{
+  "fixture_id": "OFFLINE-REVIEWED-DEMO-001",
+  "fixture_status": "reviewed demonstration recording; not a live model run",
+  "initial_analysis": {
+    "role": "policy_analyst",
+    "round": "initial",
+    "findings": [
+      {
+        "change": {
+          "change_id": "CHG-DIAG-001",
+          "section_id": "3",
+          "category": "diagnosis_criteria",
+          "old_summary": "Eligible set: SYN-DX-A1, SYN-DX-B2.",
+          "new_summary": "Eligible set: SYN-DX-B2, SYN-DX-C3.",
+          "material": true,
+          "executable": true,
+          "human_review_required": false,
+          "old_evidence": {
+            "policy_id": "SYN-PAY-042",
+            "policy_version": "1.0",
+            "section_id": "3",
+            "section_title": "Eligible Diagnosis Criterion",
+            "excerpt": "For the in-scope procedure, the eligible fictional diagnosis set is `SYN-DX-A1` or `SYN-DX-B2`."
+          },
+          "new_evidence": {
+            "policy_id": "SYN-PAY-042",
+            "policy_version": "2.0",
+            "section_id": "3",
+            "section_title": "Eligible Diagnosis Criterion",
+            "excerpt": "For the in-scope procedure, the eligible fictional diagnosis set is `SYN-DX-B2` or `SYN-DX-C3`."
+          }
+        },
+        "old_rule": {
+          "rule_id": "DIAG-V1",
+          "policy_id": "SYN-PAY-042",
+          "policy_version": "1.0",
+          "change_id": "CHG-DIAG-001",
+          "rule_type": "diagnosis_inclusion",
+          "field": "diagnosis_codes",
+          "operator": "intersects",
+          "value": [
+            "SYN-DX-A1",
+            "SYN-DX-B2"
+          ],
+          "executable": true,
+          "evidence": {
+            "policy_id": "SYN-PAY-042",
+            "policy_version": "1.0",
+            "section_id": "3",
+            "section_title": "Eligible Diagnosis Criterion",
+            "excerpt": "For the in-scope procedure, the eligible fictional diagnosis set is `SYN-DX-A1` or `SYN-DX-B2`."
+          }
+        },
+        "new_rule": {
+          "rule_id": "DIAG-V2",
+          "policy_id": "SYN-PAY-042",
+          "policy_version": "2.0",
+          "change_id": "CHG-DIAG-001",
+          "rule_type": "diagnosis_inclusion",
+          "field": "diagnosis_codes",
+          "operator": "intersects",
+          "value": [
+            "SYN-DX-B2",
+            "SYN-DX-C3"
+          ],
+          "executable": true,
+          "evidence": {
+            "policy_id": "SYN-PAY-042",
+            "policy_version": "2.0",
+            "section_id": "3",
+            "section_title": "Eligible Diagnosis Criterion",
+            "excerpt": "For the in-scope procedure, the eligible fictional diagnosis set is `SYN-DX-B2` or `SYN-DX-C3`."
+          }
+        },
+        "qualifications": [
+          "Applies only to the selected fictional procedure scope in Section 2.",
+          "Tests set intersection only; it does not determine medical necessity."
+        ],
+        "exceptions": [
+          "Out-of-scope procedures remain unchanged by this selected criterion."
+        ],
+        "ambiguity_note": null,
+        "execution_recommendation": "candidate_for_execution"
+      },
+      {
+        "change": {
+          "change_id": "CHG-UNITS-002",
+          "section_id": "4",
+          "category": "maximum_service_units",
+          "old_summary": "Maximum units per claim line: 4.",
+          "new_summary": "Maximum units per claim line: 3.",
+          "material": true,
+          "executable": true,
+          "human_review_required": false,
+          "old_evidence": {
+            "policy_id": "SYN-PAY-042",
+            "policy_version": "1.0",
+            "section_id": "4",
+            "section_title": "Maximum Service Units",
+            "excerpt": "For an in-scope claim, the maximum service units under the selected criterion are `4` per claim line."
+          },
+          "new_evidence": {
+            "policy_id": "SYN-PAY-042",
+            "policy_version": "2.0",
+            "section_id": "4",
+            "section_title": "Maximum Service Units",
+            "excerpt": "For an in-scope claim, the maximum service units under the selected criterion are `3` per claim line."
+          }
+        },
+        "old_rule": {
+          "rule_id": "UNITS-V1",
+          "policy_id": "SYN-PAY-042",
+          "policy_version": "1.0",
+          "change_id": "CHG-UNITS-002",
+          "rule_type": "maximum_units",
+          "field": "units",
+          "operator": "less_than_or_equal",
+          "value": 4,
+          "executable": true,
+          "evidence": {
+            "policy_id": "SYN-PAY-042",
+            "policy_version": "1.0",
+            "section_id": "4",
+            "section_title": "Maximum Service Units",
+            "excerpt": "For an in-scope claim, the maximum service units under the selected criterion are `4` per claim line."
+          }
+        },
+        "new_rule": {
+          "rule_id": "UNITS-V2",
+          "policy_id": "SYN-PAY-042",
+          "policy_version": "2.0",
+          "change_id": "CHG-UNITS-002",
+          "rule_type": "maximum_units",
+          "field": "units",
+          "operator": "less_than_or_equal",
+          "value": 3,
+          "executable": true,
+          "evidence": {
+            "policy_id": "SYN-PAY-042",
+            "policy_version": "2.0",
+            "section_id": "4",
+            "section_title": "Maximum Service Units",
+            "excerpt": "For an in-scope claim, the maximum service units under the selected criterion are `3` per claim line."
+          }
+        },
+        "qualifications": [
+          "Applies to the controlled claim-line units field only.",
+          "Compares an integer with the stated maximum; no fee or payment is computed."
+        ],
+        "exceptions": [
+          "Exactly three units does not exceed the version 2.0 limit."
+        ],
+        "ambiguity_note": null,
+        "execution_recommendation": "candidate_for_execution"
+      },
+      {
+        "change": {
+          "change_id": "CHG-MOD-003",
+          "section_id": "5",
+          "category": "modifier_or_documentation",
+          "old_summary": "No dedicated modifier requirement.",
+          "new_summary": "Missing SYN-MOD-RV routes to modifier or documentation review.",
+          "material": true,
+          "executable": true,
+          "human_review_required": false,
+          "old_evidence": {
+            "policy_id": "SYN-PAY-042",
+            "policy_version": "1.0",
+            "section_id": "5",
+            "section_title": "Modifier or Documentation Review",
+            "excerpt": "Claims in scope have no dedicated modifier requirement under this version. If fictional modifier `SYN-MOD-TRN` is present, Section 6 controls and this section must not produce an automated conclusion."
+          },
+          "new_evidence": {
+            "policy_id": "SYN-PAY-042",
+            "policy_version": "2.0",
+            "section_id": "5",
+            "section_title": "Modifier or Documentation Review",
+            "excerpt": "Claims in scope must carry fictional modifier `SYN-MOD-RV`; otherwise, route the claim to modifier or documentation review. If fictional modifier `SYN-MOD-TRN` is present, Section 6 controls and this section must not produce an automated conclusion."
+          }
+        },
+        "old_rule": {
+          "rule_id": "MOD-V1",
+          "policy_id": "SYN-PAY-042",
+          "policy_version": "1.0",
+          "change_id": "CHG-MOD-003",
+          "rule_type": "modifier_or_documentation_review",
+          "field": "modifier",
+          "operator": "missing_required_value",
+          "value": null,
+          "executable": true,
+          "evidence": {
+            "policy_id": "SYN-PAY-042",
+            "policy_version": "1.0",
+            "section_id": "5",
+            "section_title": "Modifier or Documentation Review",
+            "excerpt": "Claims in scope have no dedicated modifier requirement under this version. If fictional modifier `SYN-MOD-TRN` is present, Section 6 controls and this section must not produce an automated conclusion."
+          }
+        },
+        "new_rule": {
+          "rule_id": "MOD-V2",
+          "policy_id": "SYN-PAY-042",
+          "policy_version": "2.0",
+          "change_id": "CHG-MOD-003",
+          "rule_type": "modifier_or_documentation_review",
+          "field": "modifier",
+          "operator": "missing_required_value",
+          "value": "SYN-MOD-RV",
+          "executable": true,
+          "evidence": {
+            "policy_id": "SYN-PAY-042",
+            "policy_version": "2.0",
+            "section_id": "5",
+            "section_title": "Modifier or Documentation Review",
+            "excerpt": "Claims in scope must carry fictional modifier `SYN-MOD-RV`; otherwise, route the claim to modifier or documentation review. If fictional modifier `SYN-MOD-TRN` is present, Section 6 controls and this section must not produce an automated conclusion."
+          }
+        },
+        "qualifications": [
+          "A missing SYN-MOD-RV value routes the item to modifier or documentation review."
+        ],
+        "exceptions": [
+          "SYN-MOD-TRN is governed by the non-executable contextual clause first."
+        ],
+        "ambiguity_note": null,
+        "execution_recommendation": "candidate_for_execution"
+      },
+      {
+        "change": {
+          "change_id": "CHG-AMB-004",
+          "section_id": "6",
+          "category": "ambiguous_clause",
+          "old_summary": "Contextual transition wording is undefined and non-executable.",
+          "new_summary": "Revised contextual transition wording remains undefined and non-executable.",
+          "material": true,
+          "executable": false,
+          "human_review_required": true,
+          "old_evidence": {
+            "policy_id": "SYN-PAY-042",
+            "policy_version": "1.0",
+            "section_id": "6",
+            "section_title": "Contextual Transition Clause",
+            "excerpt": "When fictional modifier `SYN-MOD-TRN` is present, additional context may be reviewed if the service pattern appears close to a transition in intensity. The terms \u201cclose\u201d and \u201ctransition in intensity\u201d are intentionally undefined. This clause is non-executable and requires human interpretation."
+          },
+          "new_evidence": {
+            "policy_id": "SYN-PAY-042",
+            "policy_version": "2.0",
+            "section_id": "6",
+            "section_title": "Contextual Transition Clause",
+            "excerpt": "When fictional modifier `SYN-MOD-TRN` is present, heightened contextual review should be considered if recent services show a meaningful transition in intensity. The terms \u201crecent,\u201d \u201cmeaningful,\u201d and \u201ctransition in intensity\u201d are intentionally undefined. This clause is non-executable and requires human interpretation."
+          }
+        },
+        "old_rule": {
+          "rule_id": "AMB-V1",
+          "policy_id": "SYN-PAY-042",
+          "policy_version": "1.0",
+          "change_id": "CHG-AMB-004",
+          "rule_type": "ambiguous_human_review",
+          "field": "modifier",
+          "operator": "review_only",
+          "value": "SYN-MOD-TRN",
+          "executable": false,
+          "evidence": {
+            "policy_id": "SYN-PAY-042",
+            "policy_version": "1.0",
+            "section_id": "6",
+            "section_title": "Contextual Transition Clause",
+            "excerpt": "When fictional modifier `SYN-MOD-TRN` is present, additional context may be reviewed if the service pattern appears close to a transition in intensity. The terms \u201cclose\u201d and \u201ctransition in intensity\u201d are intentionally undefined. This clause is non-executable and requires human interpretation."
+          }
+        },
+        "new_rule": {
+          "rule_id": "AMB-V2",
+          "policy_id": "SYN-PAY-042",
+          "policy_version": "2.0",
+          "change_id": "CHG-AMB-004",
+          "rule_type": "ambiguous_human_review",
+          "field": "modifier",
+          "operator": "review_only",
+          "value": "SYN-MOD-TRN",
+          "executable": false,
+          "evidence": {
+            "policy_id": "SYN-PAY-042",
+            "policy_version": "2.0",
+            "section_id": "6",
+            "section_title": "Contextual Transition Clause",
+            "excerpt": "When fictional modifier `SYN-MOD-TRN` is present, heightened contextual review should be considered if recent services show a meaningful transition in intensity. The terms \u201crecent,\u201d \u201cmeaningful,\u201d and \u201ctransition in intensity\u201d are intentionally undefined. This clause is non-executable and requires human interpretation."
+          }
+        },
+        "qualifications": [
+          "Undefined contextual terms cannot be converted into deterministic predicates.",
+          "The SYN-MOD-TRN marker only invokes a human-review path."
+        ],
+        "exceptions": [
+          "No automated interpretation of recent, meaningful, close, or transition is allowed."
+        ],
+        "ambiguity_note": "The clause changes wording but retains undefined concepts; evidence supports abstention only.",
+        "execution_recommendation": "human_review_only"
+      }
+    ],
+    "concise_summary": "Four material changes are proposed: three controlled rule pairs and one non-executable ambiguity."
+  },
+  "initial_audit": {
+    "role": "evidence_auditor",
+    "round": "initial",
+    "findings": [
+      {
+        "change_id": "CHG-DIAG-001",
+        "disposition": "accept",
+        "evidence_supported": true,
+        "rule_pair_supported": true,
+        "unsupported_assertions": [],
+        "concise_critique": "Section 3 directly supports both fictional diagnosis sets and their set-intersection rule.",
+        "requested_revision": null
+      },
+      {
+        "change_id": "CHG-UNITS-002",
+        "disposition": "accept",
+        "evidence_supported": true,
+        "rule_pair_supported": true,
+        "unsupported_assertions": [],
+        "concise_critique": "Section 4 directly supports the numeric change from four to three units.",
+        "requested_revision": null
+      },
+      {
+        "change_id": "CHG-MOD-003",
+        "disposition": "revise",
+        "evidence_supported": true,
+        "rule_pair_supported": true,
+        "unsupported_assertions": [],
+        "concise_critique": "Evidence supports review routing, but the proposal must state that documentation itself is absent and no payment conclusion follows.",
+        "requested_revision": "Add the claim-data limitation and retain review routing rather than a claim or payment conclusion."
+      },
+      {
+        "change_id": "CHG-AMB-004",
+        "disposition": "abstain",
+        "evidence_supported": true,
+        "rule_pair_supported": true,
+        "unsupported_assertions": [],
+        "concise_critique": "The changed wording remains undefined; keep the marker visible and non-executable for human review.",
+        "requested_revision": null
+      }
+    ],
+    "concise_summary": "Three proposals are evidence-supported; one needs a bounded qualification and the ambiguous clause requires abstention."
+  },
+  "revised_analysis": {
+    "role": "policy_analyst",
+    "round": "revised",
+    "findings": [
+      {
+        "change": {
+          "change_id": "CHG-DIAG-001",
+          "section_id": "3",
+          "category": "diagnosis_criteria",
+          "old_summary": "Eligible set: SYN-DX-A1, SYN-DX-B2.",
+          "new_summary": "Eligible set: SYN-DX-B2, SYN-DX-C3.",
+          "material": true,
+          "executable": true,
+          "human_review_required": false,
+          "old_evidence": {
+            "policy_id": "SYN-PAY-042",
+            "policy_version": "1.0",
+            "section_id": "3",
+            "section_title": "Eligible Diagnosis Criterion",
+            "excerpt": "For the in-scope procedure, the eligible fictional diagnosis set is `SYN-DX-A1` or `SYN-DX-B2`."
+          },
+          "new_evidence": {
+            "policy_id": "SYN-PAY-042",
+            "policy_version": "2.0",
+            "section_id": "3",
+            "section_title": "Eligible Diagnosis Criterion",
+            "excerpt": "For the in-scope procedure, the eligible fictional diagnosis set is `SYN-DX-B2` or `SYN-DX-C3`."
+          }
+        },
+        "old_rule": {
+          "rule_id": "DIAG-V1",
+          "policy_id": "SYN-PAY-042",
+          "policy_version": "1.0",
+          "change_id": "CHG-DIAG-001",
+          "rule_type": "diagnosis_inclusion",
+          "field": "diagnosis_codes",
+          "operator": "intersects",
+          "value": [
+            "SYN-DX-A1",
+            "SYN-DX-B2"
+          ],
+          "executable": true,
+          "evidence": {
+            "policy_id": "SYN-PAY-042",
+            "policy_version": "1.0",
+            "section_id": "3",
+            "section_title": "Eligible Diagnosis Criterion",
+            "excerpt": "For the in-scope procedure, the eligible fictional diagnosis set is `SYN-DX-A1` or `SYN-DX-B2`."
+          }
+        },
+        "new_rule": {
+          "rule_id": "DIAG-V2",
+          "policy_id": "SYN-PAY-042",
+          "policy_version": "2.0",
+          "change_id": "CHG-DIAG-001",
+          "rule_type": "diagnosis_inclusion",
+          "field": "diagnosis_codes",
+          "operator": "intersects",
+          "value": [
+            "SYN-DX-B2",
+            "SYN-DX-C3"
+          ],
+          "executable": true,
+          "evidence": {
+            "policy_id": "SYN-PAY-042",
+            "policy_version": "2.0",
+            "section_id": "3",
+            "section_title": "Eligible Diagnosis Criterion",
+            "excerpt": "For the in-scope procedure, the eligible fictional diagnosis set is `SYN-DX-B2` or `SYN-DX-C3`."
+          }
+        },
+        "qualifications": [
+          "Applies only to the selected fictional procedure scope in Section 2.",
+          "Tests set intersection only; it does not determine medical necessity."
+        ],
+        "exceptions": [
+          "Out-of-scope procedures remain unchanged by this selected criterion."
+        ],
+        "ambiguity_note": null,
+        "execution_recommendation": "candidate_for_execution"
+      },
+      {
+        "change": {
+          "change_id": "CHG-UNITS-002",
+          "section_id": "4",
+          "category": "maximum_service_units",
+          "old_summary": "Maximum units per claim line: 4.",
+          "new_summary": "Maximum units per claim line: 3.",
+          "material": true,
+          "executable": true,
+          "human_review_required": false,
+          "old_evidence": {
+            "policy_id": "SYN-PAY-042",
+            "policy_version": "1.0",
+            "section_id": "4",
+            "section_title": "Maximum Service Units",
+            "excerpt": "For an in-scope claim, the maximum service units under the selected criterion are `4` per claim line."
+          },
+          "new_evidence": {
+            "policy_id": "SYN-PAY-042",
+            "policy_version": "2.0",
+            "section_id": "4",
+            "section_title": "Maximum Service Units",
+            "excerpt": "For an in-scope claim, the maximum service units under the selected criterion are `3` per claim line."
+          }
+        },
+        "old_rule": {
+          "rule_id": "UNITS-V1",
+          "policy_id": "SYN-PAY-042",
+          "policy_version": "1.0",
+          "change_id": "CHG-UNITS-002",
+          "rule_type": "maximum_units",
+          "field": "units",
+          "operator": "less_than_or_equal",
+          "value": 4,
+          "executable": true,
+          "evidence": {
+            "policy_id": "SYN-PAY-042",
+            "policy_version": "1.0",
+            "section_id": "4",
+            "section_title": "Maximum Service Units",
+            "excerpt": "For an in-scope claim, the maximum service units under the selected criterion are `4` per claim line."
+          }
+        },
+        "new_rule": {
+          "rule_id": "UNITS-V2",
+          "policy_id": "SYN-PAY-042",
+          "policy_version": "2.0",
+          "change_id": "CHG-UNITS-002",
+          "rule_type": "maximum_units",
+          "field": "units",
+          "operator": "less_than_or_equal",
+          "value": 3,
+          "executable": true,
+          "evidence": {
+            "policy_id": "SYN-PAY-042",
+            "policy_version": "2.0",
+            "section_id": "4",
+            "section_title": "Maximum Service Units",
+            "excerpt": "For an in-scope claim, the maximum service units under the selected criterion are `3` per claim line."
+          }
+        },
+        "qualifications": [
+          "Applies to the controlled claim-line units field only.",
+          "Compares an integer with the stated maximum; no fee or payment is computed."
+        ],
+        "exceptions": [
+          "Exactly three units does not exceed the version 2.0 limit."
+        ],
+        "ambiguity_note": null,
+        "execution_recommendation": "candidate_for_execution"
+      },
+      {
+        "change": {
+          "change_id": "CHG-MOD-003",
+          "section_id": "5",
+          "category": "modifier_or_documentation",
+          "old_summary": "No dedicated modifier requirement.",
+          "new_summary": "Missing SYN-MOD-RV routes to modifier or documentation review.",
+          "material": true,
+          "executable": true,
+          "human_review_required": false,
+          "old_evidence": {
+            "policy_id": "SYN-PAY-042",
+            "policy_version": "1.0",
+            "section_id": "5",
+            "section_title": "Modifier or Documentation Review",
+            "excerpt": "Claims in scope have no dedicated modifier requirement under this version. If fictional modifier `SYN-MOD-TRN` is present, Section 6 controls and this section must not produce an automated conclusion."
+          },
+          "new_evidence": {
+            "policy_id": "SYN-PAY-042",
+            "policy_version": "2.0",
+            "section_id": "5",
+            "section_title": "Modifier or Documentation Review",
+            "excerpt": "Claims in scope must carry fictional modifier `SYN-MOD-RV`; otherwise, route the claim to modifier or documentation review. If fictional modifier `SYN-MOD-TRN` is present, Section 6 controls and this section must not produce an automated conclusion."
+          }
+        },
+        "old_rule": {
+          "rule_id": "MOD-V1",
+          "policy_id": "SYN-PAY-042",
+          "policy_version": "1.0",
+          "change_id": "CHG-MOD-003",
+          "rule_type": "modifier_or_documentation_review",
+          "field": "modifier",
+          "operator": "missing_required_value",
+          "value": null,
+          "executable": true,
+          "evidence": {
+            "policy_id": "SYN-PAY-042",
+            "policy_version": "1.0",
+            "section_id": "5",
+            "section_title": "Modifier or Documentation Review",
+            "excerpt": "Claims in scope have no dedicated modifier requirement under this version. If fictional modifier `SYN-MOD-TRN` is present, Section 6 controls and this section must not produce an automated conclusion."
+          }
+        },
+        "new_rule": {
+          "rule_id": "MOD-V2",
+          "policy_id": "SYN-PAY-042",
+          "policy_version": "2.0",
+          "change_id": "CHG-MOD-003",
+          "rule_type": "modifier_or_documentation_review",
+          "field": "modifier",
+          "operator": "missing_required_value",
+          "value": "SYN-MOD-RV",
+          "executable": true,
+          "evidence": {
+            "policy_id": "SYN-PAY-042",
+            "policy_version": "2.0",
+            "section_id": "5",
+            "section_title": "Modifier or Documentation Review",
+            "excerpt": "Claims in scope must carry fictional modifier `SYN-MOD-RV`; otherwise, route the claim to modifier or documentation review. If fictional modifier `SYN-MOD-TRN` is present, Section 6 controls and this section must not produce an automated conclusion."
+          }
+        },
+        "qualifications": [
+          "A missing SYN-MOD-RV value routes the item to review rather than a claim decision.",
+          "The synthetic claim record does not contain documentation content."
+        ],
+        "exceptions": [
+          "SYN-MOD-TRN is governed by the non-executable contextual clause first."
+        ],
+        "ambiguity_note": null,
+        "execution_recommendation": "candidate_for_execution"
+      },
+      {
+        "change": {
+          "change_id": "CHG-AMB-004",
+          "section_id": "6",
+          "category": "ambiguous_clause",
+          "old_summary": "Contextual transition wording is undefined and non-executable.",
+          "new_summary": "Revised contextual transition wording remains undefined and non-executable.",
+          "material": true,
+          "executable": false,
+          "human_review_required": true,
+          "old_evidence": {
+            "policy_id": "SYN-PAY-042",
+            "policy_version": "1.0",
+            "section_id": "6",
+            "section_title": "Contextual Transition Clause",
+            "excerpt": "When fictional modifier `SYN-MOD-TRN` is present, additional context may be reviewed if the service pattern appears close to a transition in intensity. The terms \u201cclose\u201d and \u201ctransition in intensity\u201d are intentionally undefined. This clause is non-executable and requires human interpretation."
+          },
+          "new_evidence": {
+            "policy_id": "SYN-PAY-042",
+            "policy_version": "2.0",
+            "section_id": "6",
+            "section_title": "Contextual Transition Clause",
+            "excerpt": "When fictional modifier `SYN-MOD-TRN` is present, heightened contextual review should be considered if recent services show a meaningful transition in intensity. The terms \u201crecent,\u201d \u201cmeaningful,\u201d and \u201ctransition in intensity\u201d are intentionally undefined. This clause is non-executable and requires human interpretation."
+          }
+        },
+        "old_rule": {
+          "rule_id": "AMB-V1",
+          "policy_id": "SYN-PAY-042",
+          "policy_version": "1.0",
+          "change_id": "CHG-AMB-004",
+          "rule_type": "ambiguous_human_review",
+          "field": "modifier",
+          "operator": "review_only",
+          "value": "SYN-MOD-TRN",
+          "executable": false,
+          "evidence": {
+            "policy_id": "SYN-PAY-042",
+            "policy_version": "1.0",
+            "section_id": "6",
+            "section_title": "Contextual Transition Clause",
+            "excerpt": "When fictional modifier `SYN-MOD-TRN` is present, additional context may be reviewed if the service pattern appears close to a transition in intensity. The terms \u201cclose\u201d and \u201ctransition in intensity\u201d are intentionally undefined. This clause is non-executable and requires human interpretation."
+          }
+        },
+        "new_rule": {
+          "rule_id": "AMB-V2",
+          "policy_id": "SYN-PAY-042",
+          "policy_version": "2.0",
+          "change_id": "CHG-AMB-004",
+          "rule_type": "ambiguous_human_review",
+          "field": "modifier",
+          "operator": "review_only",
+          "value": "SYN-MOD-TRN",
+          "executable": false,
+          "evidence": {
+            "policy_id": "SYN-PAY-042",
+            "policy_version": "2.0",
+            "section_id": "6",
+            "section_title": "Contextual Transition Clause",
+            "excerpt": "When fictional modifier `SYN-MOD-TRN` is present, heightened contextual review should be considered if recent services show a meaningful transition in intensity. The terms \u201crecent,\u201d \u201cmeaningful,\u201d and \u201ctransition in intensity\u201d are intentionally undefined. This clause is non-executable and requires human interpretation."
+          }
+        },
+        "qualifications": [
+          "Undefined contextual terms cannot be converted into deterministic predicates.",
+          "The SYN-MOD-TRN marker only invokes a human-review path."
+        ],
+        "exceptions": [
+          "No automated interpretation of recent, meaningful, close, or transition is allowed."
+        ],
+        "ambiguity_note": "The clause changes wording but retains undefined concepts; evidence supports abstention only.",
+        "execution_recommendation": "human_review_only"
+      }
+    ],
+    "concise_summary": "The modifier proposal now states the data limitation explicitly; three pairs remain candidates and the ambiguous clause remains review-only."
+  },
+  "final_audit": {
+    "role": "evidence_auditor",
+    "round": "final",
+    "findings": [
+      {
+        "change_id": "CHG-DIAG-001",
+        "disposition": "accept",
+        "evidence_supported": true,
+        "rule_pair_supported": true,
+        "unsupported_assertions": [],
+        "concise_critique": "Section 3 directly supports both fictional diagnosis sets and their set-intersection rule.",
+        "requested_revision": null
+      },
+      {
+        "change_id": "CHG-UNITS-002",
+        "disposition": "accept",
+        "evidence_supported": true,
+        "rule_pair_supported": true,
+        "unsupported_assertions": [],
+        "concise_critique": "Section 4 directly supports the numeric change from four to three units.",
+        "requested_revision": null
+      },
+      {
+        "change_id": "CHG-MOD-003",
+        "disposition": "accept",
+        "evidence_supported": true,
+        "rule_pair_supported": true,
+        "unsupported_assertions": [],
+        "concise_critique": "The revision correctly limits the result to routing and states that documentation content is unavailable.",
+        "requested_revision": null
+      },
+      {
+        "change_id": "CHG-AMB-004",
+        "disposition": "abstain",
+        "evidence_supported": true,
+        "rule_pair_supported": true,
+        "unsupported_assertions": [],
+        "concise_critique": "The changed wording remains undefined; keep the marker visible and non-executable for human review.",
+        "requested_revision": null
+      }
+    ],
+    "concise_summary": "Three revised rule pairs are accepted for possible human approval; the ambiguous clause remains an explicit abstention."
+  }
+}
