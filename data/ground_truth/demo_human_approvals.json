@@ -1,0 +1,20 @@
+[
+  {
+    "change_id": "CHG-DIAG-001",
+    "status": "approved_for_demo_execution",
+    "reviewer": "Manual reviewed-demo approval fixture",
+    "rationale": "Approved only for deterministic execution against the 16 synthetic claims."
+  },
+  {
+    "change_id": "CHG-UNITS-002",
+    "status": "approved_for_demo_execution",
+    "reviewer": "Manual reviewed-demo approval fixture",
+    "rationale": "Approved only for deterministic execution against the 16 synthetic claims."
+  },
+  {
+    "change_id": "CHG-MOD-003",
+    "status": "approved_for_demo_execution",
+    "reviewer": "Manual reviewed-demo approval fixture",
+    "rationale": "Approved only for deterministic execution against the 16 synthetic claims."
+  }
+]

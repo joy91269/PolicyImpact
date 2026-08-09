@@ -1,0 +1,417 @@
+{
+  "schema_version": "1.0",
+  "description": "Manually curated ground truth for the fully synthetic PolicyImpact controlled scenario.",
+  "expected_policy_changes": [
+    {
+      "change_id": "CHG-DIAG-001",
+      "section_id": "3",
+      "category": "diagnosis_criteria",
+      "old_summary": "Eligible set: SYN-DX-A1, SYN-DX-B2.",
+      "new_summary": "Eligible set: SYN-DX-B2, SYN-DX-C3.",
+      "executable": true,
+      "human_review_required": false,
+      "old_evidence": {"policy_version": "1.0", "section_id": "3"},
+      "new_evidence": {"policy_version": "2.0", "section_id": "3"}
+    },
+    {
+      "change_id": "CHG-UNITS-002",
+      "section_id": "4",
+      "category": "maximum_service_units",
+      "old_summary": "Maximum units per claim line: 4.",
+      "new_summary": "Maximum units per claim line: 3.",
+      "executable": true,
+      "human_review_required": false,
+      "old_evidence": {"policy_version": "1.0", "section_id": "4"},
+      "new_evidence": {"policy_version": "2.0", "section_id": "4"}
+    },
+    {
+      "change_id": "CHG-MOD-003",
+      "section_id": "5",
+      "category": "modifier_or_documentation",
+      "old_summary": "No dedicated modifier requirement.",
+      "new_summary": "Missing SYN-MOD-RV routes to modifier or documentation review.",
+      "executable": true,
+      "human_review_required": false,
+      "old_evidence": {"policy_version": "1.0", "section_id": "5"},
+      "new_evidence": {"policy_version": "2.0", "section_id": "5"}
+    },
+    {
+      "change_id": "CHG-AMB-004",
+      "section_id": "6",
+      "category": "ambiguous_clause",
+      "old_summary": "Contextual transition wording is undefined and non-executable.",
+      "new_summary": "Revised contextual transition wording remains undefined and non-executable.",
+      "executable": false,
+      "human_review_required": true,
+      "old_evidence": {"policy_version": "1.0", "section_id": "6"},
+      "new_evidence": {"policy_version": "2.0", "section_id": "6"}
+    }
+  ],
+  "expected_executable_rule_pairs": [
+    {
+      "change_id": "CHG-DIAG-001",
+      "old_rule": {
+        "rule_id": "DIAG-V1",
+        "policy_id": "SYN-PAY-042",
+        "policy_version": "1.0",
+        "change_id": "CHG-DIAG-001",
+        "rule_type": "diagnosis_inclusion",
+        "field": "diagnosis_codes",
+        "operator": "intersects",
+        "value": ["SYN-DX-A1", "SYN-DX-B2"],
+        "executable": true,
+        "evidence": {"policy_version": "1.0", "section_id": "3"}
+      },
+      "new_rule": {
+        "rule_id": "DIAG-V2",
+        "policy_id": "SYN-PAY-042",
+        "policy_version": "2.0",
+        "change_id": "CHG-DIAG-001",
+        "rule_type": "diagnosis_inclusion",
+        "field": "diagnosis_codes",
+        "operator": "intersects",
+        "value": ["SYN-DX-B2", "SYN-DX-C3"],
+        "executable": true,
+        "evidence": {"policy_version": "2.0", "section_id": "3"}
+      }
+    },
+    {
+      "change_id": "CHG-UNITS-002",
+      "old_rule": {
+        "rule_id": "UNITS-V1",
+        "policy_id": "SYN-PAY-042",
+        "policy_version": "1.0",
+        "change_id": "CHG-UNITS-002",
+        "rule_type": "maximum_units",
+        "field": "units",
+        "operator": "less_than_or_equal",
+        "value": 4,
+        "executable": true,
+        "evidence": {"policy_version": "1.0", "section_id": "4"}
+      },
+      "new_rule": {
+        "rule_id": "UNITS-V2",
+        "policy_id": "SYN-PAY-042",
+        "policy_version": "2.0",
+        "change_id": "CHG-UNITS-002",
+        "rule_type": "maximum_units",
+        "field": "units",
+        "operator": "less_than_or_equal",
+        "value": 3,
+        "executable": true,
+        "evidence": {"policy_version": "2.0", "section_id": "4"}
+      }
+    },
+    {
+      "change_id": "CHG-MOD-003",
+      "old_rule": {
+        "rule_id": "MOD-V1",
+        "policy_id": "SYN-PAY-042",
+        "policy_version": "1.0",
+        "change_id": "CHG-MOD-003",
+        "rule_type": "modifier_or_documentation_review",
+        "field": "modifier",
+        "operator": "missing_required_value",
+        "value": null,
+        "executable": true,
+        "evidence": {"policy_version": "1.0", "section_id": "5"}
+      },
+      "new_rule": {
+        "rule_id": "MOD-V2",
+        "policy_id": "SYN-PAY-042",
+        "policy_version": "2.0",
+        "change_id": "CHG-MOD-003",
+        "rule_type": "modifier_or_documentation_review",
+        "field": "modifier",
+        "operator": "missing_required_value",
+        "value": "SYN-MOD-RV",
+        "executable": true,
+        "evidence": {"policy_version": "2.0", "section_id": "5"}
+      }
+    }
+  ],
+  "expected_abstention": {
+    "change_id": "CHG-AMB-004",
+    "old_rule": {
+      "rule_id": "AMB-V1",
+      "policy_id": "SYN-PAY-042",
+      "policy_version": "1.0",
+      "change_id": "CHG-AMB-004",
+      "rule_type": "ambiguous_human_review",
+      "field": "modifier",
+      "operator": "review_only",
+      "value": "SYN-MOD-TRN",
+      "executable": false,
+      "evidence": {"policy_version": "1.0", "section_id": "6"}
+    },
+    "new_rule": {
+      "rule_id": "AMB-V2",
+      "policy_id": "SYN-PAY-042",
+      "policy_version": "2.0",
+      "change_id": "CHG-AMB-004",
+      "rule_type": "ambiguous_human_review",
+      "field": "modifier",
+      "operator": "review_only",
+      "value": "SYN-MOD-TRN",
+      "executable": false,
+      "evidence": {"policy_version": "2.0", "section_id": "6"}
+    },
+    "expected_outcome": "ambiguous_human_review"
+  },
+  "audit_decisions": [
+    {
+      "change_id": "CHG-DIAG-001",
+      "status": "accepted_for_execution",
+      "rule_ids": ["DIAG-V1", "DIAG-V2"],
+      "reviewer": "Manual ground-truth fixture",
+      "rationale": "The old and new diagnosis sets are explicit and directly supported by Section 3."
+    },
+    {
+      "change_id": "CHG-UNITS-002",
+      "status": "accepted_for_execution",
+      "rule_ids": ["UNITS-V1", "UNITS-V2"],
+      "reviewer": "Manual ground-truth fixture",
+      "rationale": "The numeric limits are explicit and directly supported by Section 4."
+    },
+    {
+      "change_id": "CHG-MOD-003",
+      "status": "accepted_for_execution",
+      "rule_ids": ["MOD-V1", "MOD-V2"],
+      "reviewer": "Manual ground-truth fixture",
+      "rationale": "The modifier routing requirement is explicit and directly supported by Section 5."
+    },
+    {
+      "change_id": "CHG-AMB-004",
+      "status": "requires_human_review",
+      "rule_ids": ["AMB-V1", "AMB-V2"],
+      "reviewer": "Manual ground-truth fixture",
+      "rationale": "The transition concepts are undefined, so the clause remains non-executable."
+    }
+  ],
+  "expected_claim_impacts": [
+    {
+      "claim_id": "CLM-001",
+      "scenario_category": "clearly_affected",
+      "old_outcome": "unchanged",
+      "new_outcome": "no_longer_matches_selected_criterion",
+      "affected": true,
+      "human_review_required": false,
+      "matched_rule_ids": ["DIAG-V1", "DIAG-V2"],
+      "expected_evidence": [
+        {"policy_version": "1.0", "section_id": "3"},
+        {"policy_version": "2.0", "section_id": "3"}
+      ],
+      "reason": "Diagnosis codes intersect the version 1.0 set but not the version 2.0 set."
+    },
+    {
+      "claim_id": "CLM-002",
+      "scenario_category": "clearly_affected",
+      "old_outcome": "unchanged",
+      "new_outcome": "no_longer_matches_selected_criterion",
+      "affected": true,
+      "human_review_required": false,
+      "matched_rule_ids": ["DIAG-V1", "DIAG-V2"],
+      "expected_evidence": [
+        {"policy_version": "1.0", "section_id": "3"},
+        {"policy_version": "2.0", "section_id": "3"}
+      ],
+      "reason": "Diagnosis codes intersect the version 1.0 set but not the version 2.0 set."
+    },
+    {
+      "claim_id": "CLM-003",
+      "scenario_category": "clearly_affected",
+      "old_outcome": "unchanged",
+      "new_outcome": "newly_matches_selected_criterion",
+      "affected": true,
+      "human_review_required": false,
+      "matched_rule_ids": ["DIAG-V1", "DIAG-V2"],
+      "expected_evidence": [
+        {"policy_version": "1.0", "section_id": "3"},
+        {"policy_version": "2.0", "section_id": "3"}
+      ],
+      "reason": "Diagnosis codes do not intersect the version 1.0 set and intersect the version 2.0 set."
+    },
+    {
+      "claim_id": "CLM-004",
+      "scenario_category": "clearly_affected",
+      "old_outcome": "unchanged",
+      "new_outcome": "newly_matches_selected_criterion",
+      "affected": true,
+      "human_review_required": false,
+      "matched_rule_ids": ["DIAG-V1", "DIAG-V2"],
+      "expected_evidence": [
+        {"policy_version": "1.0", "section_id": "3"},
+        {"policy_version": "2.0", "section_id": "3"}
+      ],
+      "reason": "Diagnosis codes do not intersect the version 1.0 set and intersect the version 2.0 set."
+    },
+    {
+      "claim_id": "CLM-005",
+      "scenario_category": "clearly_affected",
+      "old_outcome": "unchanged",
+      "new_outcome": "modifier_or_documentation_review_required",
+      "affected": true,
+      "human_review_required": true,
+      "matched_rule_ids": ["MOD-V1", "MOD-V2"],
+      "expected_evidence": [
+        {"policy_version": "1.0", "section_id": "5"},
+        {"policy_version": "2.0", "section_id": "5"}
+      ],
+      "reason": "No SYN-MOD-RV modifier is present; version 2.0 routes the claim to modifier or documentation review, while version 1.0 has no dedicated modifier requirement."
+    },
+    {
+      "claim_id": "CLM-006",
+      "scenario_category": "clearly_affected",
+      "old_outcome": "unchanged",
+      "new_outcome": "modifier_or_documentation_review_required",
+      "affected": true,
+      "human_review_required": true,
+      "matched_rule_ids": ["MOD-V1", "MOD-V2"],
+      "expected_evidence": [
+        {"policy_version": "1.0", "section_id": "5"},
+        {"policy_version": "2.0", "section_id": "5"}
+      ],
+      "reason": "No SYN-MOD-RV modifier is present; version 2.0 routes the claim to modifier or documentation review, while version 1.0 has no dedicated modifier requirement."
+    },
+    {
+      "claim_id": "CLM-007",
+      "scenario_category": "boundary",
+      "old_outcome": "unchanged",
+      "new_outcome": "unchanged",
+      "affected": false,
+      "human_review_required": false,
+      "matched_rule_ids": ["UNITS-V1", "UNITS-V2"],
+      "expected_evidence": [
+        {"policy_version": "1.0", "section_id": "4"},
+        {"policy_version": "2.0", "section_id": "4"}
+      ],
+      "reason": "Units equal the version 2.0 maximum of 3 and do not exceed either version's limit."
+    },
+    {
+      "claim_id": "CLM-008",
+      "scenario_category": "boundary",
+      "old_outcome": "unchanged",
+      "new_outcome": "unit_limit_exceeded",
+      "affected": true,
+      "human_review_required": false,
+      "matched_rule_ids": ["UNITS-V1", "UNITS-V2"],
+      "expected_evidence": [
+        {"policy_version": "1.0", "section_id": "4"},
+        {"policy_version": "2.0", "section_id": "4"}
+      ],
+      "reason": "Units are within the version 1.0 maximum of 4 and exceed the version 2.0 maximum of 3."
+    },
+    {
+      "claim_id": "CLM-009",
+      "scenario_category": "clearly_unaffected",
+      "old_outcome": "unchanged",
+      "new_outcome": "unchanged",
+      "affected": false,
+      "human_review_required": false,
+      "matched_rule_ids": ["DIAG-V1", "DIAG-V2"],
+      "expected_evidence": [
+        {"policy_version": "1.0", "section_id": "3"},
+        {"policy_version": "2.0", "section_id": "3"}
+      ],
+      "reason": "Diagnosis codes intersect both versions' eligible diagnosis sets."
+    },
+    {
+      "claim_id": "CLM-010",
+      "scenario_category": "clearly_unaffected",
+      "old_outcome": "unchanged",
+      "new_outcome": "unchanged",
+      "affected": false,
+      "human_review_required": false,
+      "matched_rule_ids": ["DIAG-V1", "DIAG-V2"],
+      "expected_evidence": [
+        {"policy_version": "1.0", "section_id": "3"},
+        {"policy_version": "2.0", "section_id": "3"}
+      ],
+      "reason": "Diagnosis codes intersect both versions' eligible diagnosis sets."
+    },
+    {
+      "claim_id": "CLM-011",
+      "scenario_category": "clearly_unaffected",
+      "old_outcome": "unchanged",
+      "new_outcome": "unchanged",
+      "affected": false,
+      "human_review_required": false,
+      "matched_rule_ids": ["DIAG-V1", "DIAG-V2"],
+      "expected_evidence": [
+        {"policy_version": "1.0", "section_id": "3"},
+        {"policy_version": "2.0", "section_id": "3"}
+      ],
+      "reason": "Diagnosis codes intersect neither version's eligible diagnosis set."
+    },
+    {
+      "claim_id": "CLM-012",
+      "scenario_category": "clearly_unaffected",
+      "old_outcome": "unchanged",
+      "new_outcome": "unchanged",
+      "affected": false,
+      "human_review_required": false,
+      "matched_rule_ids": ["SCOPE-V1", "SCOPE-V2"],
+      "expected_evidence": [
+        {"policy_version": "1.0", "section_id": "2"},
+        {"policy_version": "2.0", "section_id": "2"}
+      ],
+      "reason": "Procedure SYN-PROC-B9 is outside the SYN-PROC-A1 scope in both versions."
+    },
+    {
+      "claim_id": "CLM-013",
+      "scenario_category": "clearly_unaffected",
+      "old_outcome": "unit_limit_exceeded",
+      "new_outcome": "unit_limit_exceeded",
+      "affected": false,
+      "human_review_required": false,
+      "matched_rule_ids": ["UNITS-V1", "UNITS-V2"],
+      "expected_evidence": [
+        {"policy_version": "1.0", "section_id": "4"},
+        {"policy_version": "2.0", "section_id": "4"}
+      ],
+      "reason": "Units exceed both version 1.0 maximum of 4 and version 2.0 maximum of 3."
+    },
+    {
+      "claim_id": "CLM-014",
+      "scenario_category": "clearly_unaffected",
+      "old_outcome": "unchanged",
+      "new_outcome": "unchanged",
+      "affected": false,
+      "human_review_required": false,
+      "matched_rule_ids": ["DIAG-V1", "DIAG-V2"],
+      "expected_evidence": [
+        {"policy_version": "1.0", "section_id": "3"},
+        {"policy_version": "2.0", "section_id": "3"}
+      ],
+      "reason": "Diagnosis codes intersect both versions' eligible diagnosis sets."
+    },
+    {
+      "claim_id": "CLM-015",
+      "scenario_category": "human_review",
+      "old_outcome": "ambiguous_human_review",
+      "new_outcome": "ambiguous_human_review",
+      "affected": false,
+      "human_review_required": true,
+      "matched_rule_ids": ["AMB-V1", "AMB-V2"],
+      "expected_evidence": [
+        {"policy_version": "1.0", "section_id": "6"},
+        {"policy_version": "2.0", "section_id": "6"}
+      ],
+      "reason": "Modifier SYN-MOD-TRN invokes a non-executable clause in both versions; deterministic evaluation abstains pending human review."
+    },
+    {
+      "claim_id": "CLM-016",
+      "scenario_category": "human_review",
+      "old_outcome": "ambiguous_human_review",
+      "new_outcome": "ambiguous_human_review",
+      "affected": false,
+      "human_review_required": true,
+      "matched_rule_ids": ["AMB-V1", "AMB-V2"],
+      "expected_evidence": [
+        {"policy_version": "1.0", "section_id": "6"},
+        {"policy_version": "2.0", "section_id": "6"}
+      ],
+      "reason": "Modifier SYN-MOD-TRN invokes a non-executable clause in both versions; deterministic evaluation abstains pending human review."
+    }
+  ]
+}
