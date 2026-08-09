@@ -1,0 +1,156 @@
+{
+  "project": "PolicyImpact",
+  "synthetic_demonstration_data": true,
+  "run_metadata": {
+    "generated_at_utc": "2026-08-09T00:53:42.787360+00:00",
+    "execution_mode": "offline_reviewed_demo_fixture",
+    "provider_label": "Reviewed offline demonstration fixture (not a live model run)",
+    "recording_path": "data/agent_fixtures/offline_agent_review.json",
+    "live_model_invoked": false,
+    "revision_round_count": 1,
+    "ground_truth_path": "data/ground_truth/ground_truth.json"
+  },
+  "scenario": {
+    "policy_pair": "SYN-PAY-042 v1.0 to v2.0",
+    "material_changes": 4,
+    "executable_rule_pairs": 3,
+    "expected_abstentions": 1,
+    "claims": 16,
+    "scenario_category_counts": {
+      "boundary": 2,
+      "clearly_affected": 6,
+      "clearly_unaffected": 6,
+      "human_review": 2
+    },
+    "new_outcome_counts": {
+      "ambiguous_human_review": 2,
+      "modifier_or_documentation_review_required": 2,
+      "newly_matches_selected_criterion": 2,
+      "no_longer_matches_selected_criterion": 2,
+      "unchanged": 6,
+      "unit_limit_exceeded": 2
+    }
+  },
+  "metrics": {
+    "policy_change_precision": {
+      "value": 1.0,
+      "numerator": 4,
+      "denominator": 4,
+      "scope": "Four revised findings in the reviewed offline fixture."
+    },
+    "policy_change_recall": {
+      "value": 1.0,
+      "numerator": 4,
+      "denominator": 4,
+      "scope": "Four manually specified material changes."
+    },
+    "rule_field_exact_match": {
+      "value": 1.0,
+      "numerator": 6,
+      "denominator": 6,
+      "scope": "Six old/new executable rules across three rule pairs; all typed fields and section keys must match."
+    },
+    "evidence_section_accuracy": {
+      "value": 1.0,
+      "numerator": 8,
+      "denominator": 8,
+      "scope": "Eight old/new section references across four changes."
+    },
+    "abstention_correctness": {
+      "value": 1.0,
+      "numerator": 1,
+      "denominator": 1,
+      "scope": "The single manually specified ambiguous change."
+    },
+    "unsupported_assertion_count": {
+      "value": 0,
+      "scope": "Final auditor output only; lower is better."
+    },
+    "deterministic_impact_accuracy": {
+      "value": 1.0,
+      "numerator": 16,
+      "denominator": 16,
+      "scope": "All 16 full ClaimImpact records, including reason and evidence keys."
+    },
+    "traceability_coverage": {
+      "value": 1.0,
+      "numerator": 20,
+      "denominator": 20,
+      "scope": "Four revised change records plus 16 claim-impact records with exact policy excerpts."
+    }
+  },
+  "agent_decisions": {
+    "initial": {
+      "CHG-DIAG-001": "accept",
+      "CHG-UNITS-002": "accept",
+      "CHG-MOD-003": "revise",
+      "CHG-AMB-004": "abstain"
+    },
+    "final": {
+      "CHG-DIAG-001": "accept",
+      "CHG-UNITS-002": "accept",
+      "CHG-MOD-003": "accept",
+      "CHG-AMB-004": "abstain"
+    }
+  },
+  "authorization": {
+    "execution_allowed": true,
+    "approved_change_ids": [
+      "CHG-DIAG-001",
+      "CHG-UNITS-002",
+      "CHG-MOD-003"
+    ],
+    "blocked_change_ids": [],
+    "audit_decisions": [
+      {
+        "change_id": "CHG-DIAG-001",
+        "status": "accepted_for_execution",
+        "rule_ids": [
+          "DIAG-V1",
+          "DIAG-V2"
+        ],
+        "reviewer": "Manual reviewed-demo approval fixture",
+        "rationale": "Evidence Auditor accepted the pair; explicit human demo approval recorded: Approved only for deterministic execution against the 16 synthetic claims."
+      },
+      {
+        "change_id": "CHG-UNITS-002",
+        "status": "accepted_for_execution",
+        "rule_ids": [
+          "UNITS-V1",
+          "UNITS-V2"
+        ],
+        "reviewer": "Manual reviewed-demo approval fixture",
+        "rationale": "Evidence Auditor accepted the pair; explicit human demo approval recorded: Approved only for deterministic execution against the 16 synthetic claims."
+      },
+      {
+        "change_id": "CHG-MOD-003",
+        "status": "accepted_for_execution",
+        "rule_ids": [
+          "MOD-V1",
+          "MOD-V2"
+        ],
+        "reviewer": "Manual reviewed-demo approval fixture",
+        "rationale": "Evidence Auditor accepted the pair; explicit human demo approval recorded: Approved only for deterministic execution against the 16 synthetic claims."
+      },
+      {
+        "change_id": "CHG-AMB-004",
+        "status": "requires_human_review",
+        "rule_ids": [
+          "AMB-V1",
+          "AMB-V2"
+        ],
+        "reviewer": "Evidence Auditor role; non-executable boundary",
+        "rationale": "The changed wording remains undefined; keep the marker visible and non-executable for human review."
+      }
+    ],
+    "reason": "All three executable rule pairs passed final evidence audit and explicit human demo approval; the ambiguity pair remains non-executable."
+  },
+  "guardrails_verified": [
+    "No claim impact executes without final auditor acceptance and explicit human approval for every executable pair.",
+    "The ambiguous clause remains visible, abstained, and non-executable.",
+    "The deterministic engine\u2014not either AI role\u2014assigns all claim-impact outcomes.",
+    "All codes and records are synthetic and contain no person or provider fields.",
+    "The same 16 claims are compared under both versions; service date does not select a version."
+  ],
+  "interpretation": "The checked-in reviewed fixture reproduces all manually specified changes, rules, evidence keys, abstention, and 16 deterministic outcomes. These are scenario-consistency results for one controlled synthetic example, not an estimate of live-model accuracy, generalization, savings, or production readiness."
+}
